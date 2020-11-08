@@ -7,8 +7,25 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/png" href="images/klipartz.com.png"/>
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>	
+		<link rel="icon" type="image/png" href="images/Untitled-1.png"/>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+		</script>
+  <script>
+	function SubForm (){
+		$.ajax({
+			url:'https://api.apispreadsheets.com/data/3216/',
+			type:'post',
+			data:$("#myForm").serializeArray(),
+			success: function(){
+			  alert("Form Data Submitted :)")
+			},
+			error: function(){
+			  alert("There was an error :(")
+			}
+		});
+	}
+	</script>		
 	</head>
 	<body class="is-preload">
 
@@ -99,7 +116,7 @@
 					<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form id="myForm" method="post" action="#">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -114,10 +131,11 @@
 										<textarea name="message" id="message" rows="3"></textarea>
 									</div>
 								</div>
-								<ul class="actions">
+								<!-- <ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
-								</ul>
+								</ul> -->
 							</form>
+							<button onclick="SubForm()">Submit</button>
 						</section>
 						<section class="split contact">
 							<section class="alt">
